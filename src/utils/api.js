@@ -10,6 +10,7 @@ const headers = {
 export const fetchDataFromApi = async (url, params) => {
   try {
     const { data } = await axios.get(BASE_URL, url, { header: headers })
+    console.log("data", data)
     return data
   } catch (err) {
     console.log(err)
