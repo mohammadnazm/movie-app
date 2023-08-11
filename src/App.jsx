@@ -10,8 +10,8 @@ function App() {
     apiTesting()
   }, [])
 
-  const apiTesting = () => {
-    fetchDataFromApi("/movie/popular").then(res => {
+  const apiTesting = async () => {
+    await fetchDataFromApi("/movie/popular").then(res => {
       console.log(res)
       dispatch(getApiConfiguration(res))
     })
