@@ -45,5 +45,12 @@
     align-items: center;
     color: white;
     text-align: center;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    .title {
+      font-size: 50px;
+      font-weight: 700;
+    }
   }
 }
