@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import "./style.scss"
 import { useNavigate } from "react-router-dom"
@@ -10,18 +10,17 @@ import { useSelector } from "react-redux"
 const HeroBanner = () => {
   const [background, setBackground] = useState("")
   const [query, setQuery] = useState("")
-  const { url } = useSelector(state => state.home)
   const navigate = useNavigate()
+  const { url } = useSelector(state => state.home)
 
   const { data, loading } = useFetch("/movie/upcoming")
 
-  useFetch(() => {
+  useEffect(() => {
     const bg =
       url.backdrop +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path
     setBackground(bg)
-    console.log("background,", background)
-  }, [data])
+  }, [data, url.backdrop])
 
   const searchQueryHandler = event => {
     if (event.key === "Enter" && query.length > 0) {
