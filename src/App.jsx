@@ -18,15 +18,18 @@ function App() {
   console.log(url)
 
   useEffect(() => {
-    apiTesting()
-    console.log("apiTesting=", apiTesting())
+    fetchApiConfig()
   }, [])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const apiTesting = async () => {
-    await fetchDataFromApi("/movie/popular").then(res => {
-      console.log("res=", res)
-      dispatch(getApiConfiguration(res))
+  const fetchApiConfig = async () => {
+    await fetchDataFromApi("/configuration").then(res => {
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original",
+      }
+      dispatch(getApiConfiguration(url))
     })
   }
 
