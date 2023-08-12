@@ -25,7 +25,25 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
       }
     }
+  }
+
+  .opacity-layer {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .heroBannerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
   }
 }
