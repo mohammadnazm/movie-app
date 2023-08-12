@@ -14,6 +14,7 @@ function App() {
 
   const apiTesting = async () => {
     await fetchDataFromApi("/movie/popular").then(res => {
+      console.log("res=", res)
       dispatch(getApiConfiguration(res))
     })
   }
