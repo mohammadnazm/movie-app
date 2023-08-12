@@ -10,8 +10,10 @@ function App() {
 
   useEffect(() => {
     apiTesting()
+    console.log("apiTesting=", apiTesting())
   }, [])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const apiTesting = async () => {
     await fetchDataFromApi("/movie/popular").then(res => {
       console.log("res=", res)
@@ -19,7 +21,11 @@ function App() {
     })
   }
 
-  return <div className="App">App {url?.total_pages}</div>
+  return (
+    <div className="App" style={{ color: "white", fontSize: "3rem" }}>
+      App {url.total_pages}
+    </div>
+  )
 }
 
 export default App
