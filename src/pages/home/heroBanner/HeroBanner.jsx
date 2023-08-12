@@ -30,26 +30,31 @@ const HeroBanner = () => {
 
   return (
     <div className="heroBanner">
-      <div className="backdrop-img">
-        <Img src={background} />
-      </div>
-      <div className="wrapper">
-        <div className="heroBannerContent">
-          <span className="title">Welcome.</span>
-          <span className="subTitle">
-            Millions of movies, TV shows and people to discover. Explore now.
-          </span>
-          <div className="searchInput">
-            <input
-              type="text"
-              placeholder="Search for a movie or tv show..."
-              onChange={e => setQuery(e.target.value)}
-              onKeyUp={searchQueryHandler}
-            />
-            <button>Search</button>
+      {!loading && (
+        <div className="backdrop-img">
+          <Img src={background} />
+        </div>
+      )}
+      <div className="opacity-layer"></div>
+      <ContentWrapper>
+        <div className="wrapper">
+          <div className="heroBannerContent">
+            <span className="title">Welcome.</span>
+            <span className="subTitle">
+              Millions of movies, TV shows and people to discover. Explore now.
+            </span>
+            <div className="searchInput">
+              <input
+                type="text"
+                placeholder="Search for a movie or tv show..."
+                onChange={e => setQuery(e.target.value)}
+                onKeyUp={searchQueryHandler}
+              />
+              <button>Search</button>
+            </div>
           </div>
         </div>
-      </div>
+      </ContentWrapper>
     </div>
   )
 }
