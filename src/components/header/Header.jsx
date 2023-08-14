@@ -43,7 +43,11 @@ const Header = () => {
         </ul>
         <div className="mobileMenuItems">
           <HiOutlineSearch />
-          {mobileMenu ? <VscChromeClose /> : <VscChromeClose />}
+          {mobileMenu ? (
+            <VscChromeClose onClick={setMobileMenu(false)} />
+          ) : (
+            <SlMenu onClick={openMobileMenu} />
+          )}
         </div>
       </ContentWrapper>
     </header>
