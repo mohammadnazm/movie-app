@@ -51,6 +51,26 @@
     .title {
       font-size: 50px;
       font-weight: 700;
+      margin-bottom: 10px;
+      @include md {
+        margin-bottom: 0;
+        font-size: 90px;
+      }
+    }
+    .subTitle {
+      font-size: 18px;
+      font-weight: 500;
+      @include md {
+        font-size: 24px;
+      }
+    }
+    .searchInput {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      input {
+        width: calc(100% - 100px);
+      }
     }
   }
 }
