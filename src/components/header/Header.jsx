@@ -7,7 +7,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import "./style.scss"
 
 import ContentWrapper from "../contentWrapper/ContentWrapper"
-import logo from "../../assets/movix-logo.svg"
+import logo from "../../assets/movix-logo.png"
 
 const Header = () => {
   const [show, setShow] = useState("top")
@@ -18,7 +18,36 @@ const Header = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  return <div>Header</div>
+  const openSearch = () => {
+    setMobileMenu(false)
+    setShowSearch(true)
+  }
+
+  const openMobileMenu = () => {
+    setMobileMenu(true)
+    setShowSearch(false)
+  }
+
+  return (
+    <header className="header">
+      <ContentWrapper>
+        <div className="logo">
+          <img src={logo} alt="" />
+        </div>
+        <ul className="menuItems">
+          <li className="menuItem">Movies</li>
+          <li className="menuItem">Tv Shows</li>
+          <li className="menuItem">
+            <HiOutlineSearch />
+          </li>
+        </ul>
+        <div className="mobileMenuItems">
+          <HiOutlineSearch />
+          {mobileMenu ? <VscChromeClose /> : <VscChromeClose />}
+        </div>
+      </ContentWrapper>
+    </header>
+  )
 }
 
 export default Header
