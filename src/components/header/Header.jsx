@@ -28,7 +28,13 @@ const Header = () => {
     setShowSearch(false)
   }
 
-  const navigationHandler = type => {}
+  const navigationHandler = type => {
+    if (type === "movie") {
+      navigate("/explore/movie")
+    } else {
+      navigate("/explore/tv")
+    }
+  }
 
   const searchQueryHandler = event => {
     if (event.key === "Enter" && query.length > 0) {
