@@ -18,6 +18,25 @@ const Header = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const controlNavrbar = () => {
+    console.log(window.scrollY)
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScrollY) {
+        setShow("hide")
+      } else {
+        setShow("show")
+      }
+      setLastScrollY(window.scrollY)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavrbar)
+    return () => {
+      window.removeEventListener("scroll", controlNavrbar)
+    }
+  }, [lastScrollY])
+
   const openSearch = () => {
     setMobileMenu(false)
     setShowSearch(true)
@@ -34,6 +53,7 @@ const Header = () => {
     } else {
       navigate("/explore/tv")
     }
+    setMobileMenu(false)
   }
 
   const searchQueryHandler = event => {
