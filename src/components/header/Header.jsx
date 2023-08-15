@@ -59,19 +59,21 @@ const Header = () => {
           )}
         </div>
       </ContentWrapper>
-      <div className="searchBar">
-        <ContentWrapper>
-          <div className="searchInput">
-            <input
-              type="text"
-              placeholder="Search for a movie or tv show..."
-              onChange={e => setQuery(e.target.value)}
-              onKeyUp={searchQueryHandler}
-            />
-            <VscChromeClose onClick={() => setShowSearch(false)} />
-          </div>
-        </ContentWrapper>
-      </div>
+      {showSearch && (
+        <div className="searchBar">
+          <ContentWrapper>
+            <div className="searchInput">
+              <input
+                type="text"
+                placeholder="Search for a movie or tv show..."
+                onChange={e => setQuery(e.target.value)}
+                onKeyUp={searchQueryHandler}
+              />
+              <VscChromeClose onClick={() => setShowSearch(false)} />
+            </div>
+          </ContentWrapper>
+        </div>
+      )}
     </header>
   )
 }
